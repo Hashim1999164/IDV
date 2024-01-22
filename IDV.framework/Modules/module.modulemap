@@ -1,0 +1,11 @@
+framework module IDV {
+  umbrella header "IDV.h"
+  export *
+
+  module * { export * }
+}
+
+module IDV.Swift {
+  header "IDV-Swift.h"
+  requires objc
+}

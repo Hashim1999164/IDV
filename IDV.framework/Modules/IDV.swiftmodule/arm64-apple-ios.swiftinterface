@@ -1,0 +1,59 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IDV
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import DeveloperToolsSupport
+import Foundation
+import GameplayKit
+@_exported import IDV
+import ImageIO
+import Swift
+import SwiftUI
+import UIKit
+import Vision
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension UIKit.UIImage {
+  public class func gifImageWithData(_ data: Foundation.Data) -> UIKit.UIImage?
+  public class func gifImageWithURL(_ gifUrl: Swift.String) -> UIKit.UIImage?
+  public class func gifImageWithName(_ name: Swift.String) -> UIKit.UIImage?
+}
+extension IDV.IDVFramework {
+  public static let shared: IDV.IDVFramework
+}
+@_hasMissingDesignatedInitializers public class SDKOutputModel : Swift.Codable {
+  public var card_back: Swift.String?
+  public var card_front: Swift.String?
+  public var selfie: Swift.String?
+  public var ocr_result: IDV.SDKOutputModel.Result?
+  @_hasMissingDesignatedInitializers public class Result : Swift.Codable {
+    public var name: Swift.String?
+    public var id_number: Swift.String?
+    public var country: Swift.String?
+    public var father_name: Swift.String?
+    public var date_of_expiry: Swift.String?
+    public var date_of_issue: Swift.String?
+    public var gender: Swift.String?
+    public var date_of_birth: Swift.String?
+    @objc deinit
+    public func encode(to encoder: any Swift.Encoder) throws
+    required public init(from decoder: any Swift.Decoder) throws
+  }
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+public protocol IDVDelegate {
+  func mrzString(outputObj: IDV.SDKOutputModel)
+}
+public class IDVFramework {
+  public var delegate: (any IDV.IDVDelegate)!
+  public init()
+  public func launchIDV(preset: Swift.Int, selfieImage: Swift.String? = nil, viewControl: UIKit.UIViewController)
+  @objc deinit
+}
+extension UIKit.UIWindow {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func motionBegan(_ motion: UIKit.UIEvent.EventSubtype, with event: UIKit.UIEvent?)
+}

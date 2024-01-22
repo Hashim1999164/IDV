@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'IDV'
-  s.version          = '1.0.1'
+  s.version          = '1.0.0'
   s.summary          = 'IDV'
   s.description      = 'IDV SDK'
   s.homepage         = 'https://github.com/Hashim1999164/verifapp'
